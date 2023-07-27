@@ -94,7 +94,7 @@ class PlainFileUser:
         self.dialogs = {}
 
     def _folder_name(self):
-        return self.user.get("username", str(self.user["_id"]))
+        return str(self.user["_id"])
 
     def commit(self):
         if not os.path.exists(os.path.join(PlainFileDB.DB_PATH, self._folder_name())):
