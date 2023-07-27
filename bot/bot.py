@@ -132,8 +132,9 @@ async def is_bot_mentioned(update: Update, context: CallbackContext):
 
 
 async def start_handle(update: Update, context: CallbackContext):
-    await register_user_if_not_exists(update, context, update.message.from_user)
     user_id = update.message.from_user.id
+    logger.info(f'receive start from {user_id}')
+    await register_user_if_not_exists(update, context, update.message.from_user)
 
     db.set_user_attribute(user_id, "last_interaction", datetime.now())
     db.start_new_dialog(user_id)
