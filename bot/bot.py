@@ -649,6 +649,7 @@ async def error_handle(update: Update, context: CallbackContext) -> None:
     except:
         await context.bot.send_message(update.effective_chat.id, "Some error in error handler")
 
+
 async def post_init(application: Application):
     await application.bot.set_my_commands([
         BotCommand("/new", "Start new dialog"),
@@ -658,6 +659,7 @@ async def post_init(application: Application):
         BotCommand("/settings", "Show settings"),
         BotCommand("/help", "Show help message"),
     ])
+
 
 def run_bot() -> None:
     application = (
