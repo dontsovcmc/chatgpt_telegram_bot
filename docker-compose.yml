@@ -1,8 +1,8 @@
 version: "3"
 
 services:
-  mongo_chatgpt_telegram_bot:
-    container_name: mongo_chatgpt_telegram_bot
+  mongo:
+    container_name: mongo
     image: mongo:latest
     restart: always
     ports:
@@ -35,4 +35,4 @@ services:
       - ME_CONFIG_BASICAUTH_USERNAME=${MONGO_EXPRESS_USERNAME:-username}
       - ME_CONFIG_BASICAUTH_PASSWORD=${MONGO_EXPRESS_PASSWORD:-password}
     depends_on:
-      - mongo_chatgpt_telegram_bot
+      - mongo
