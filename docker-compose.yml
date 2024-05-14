@@ -1,8 +1,8 @@
 version: "3"
 
 services:
-  mongo:
-    container_name: mongo
+  mongo_chatgpt_telegram_bot:
+    container_name: mongo_chatgpt_telegram_bot
     image: mongo:latest
     restart: always
     ports:
@@ -19,7 +19,7 @@ services:
       context: "."
       dockerfile: Dockerfile
     depends_on:
-      - mongo
+      - mongo_chatgpt_telegram_bot
 
   mongo_express:
     container_name: mongo-express
@@ -35,4 +35,4 @@ services:
       - ME_CONFIG_BASICAUTH_USERNAME=${MONGO_EXPRESS_USERNAME:-username}
       - ME_CONFIG_BASICAUTH_PASSWORD=${MONGO_EXPRESS_PASSWORD:-password}
     depends_on:
-      - mongo
+      - mongo_chatgpt_telegram_bot
