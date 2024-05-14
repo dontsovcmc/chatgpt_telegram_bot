@@ -19,7 +19,7 @@ services:
       context: "."
       dockerfile: Dockerfile
     depends_on:
-      - mongo_chatgpt_telegram_bot
+      - mongo
 
   mongo_express:
     container_name: mongo-express
